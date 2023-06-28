@@ -1,0 +1,22 @@
+
+$font-family-base: 'Barlow', sans-serif;
+$headings-font-family: 'Permanent Marker', cursive;
+
+$blue: #233D8D;
+$yellow: #ffab1d;
+$red: #E62460;
+$lightblue: #00acb0;
+
+$primary: $blue;
+$secondary: $yellow;
+$success: $red;
+$info: $lightblue;
+
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info
+);
+
+

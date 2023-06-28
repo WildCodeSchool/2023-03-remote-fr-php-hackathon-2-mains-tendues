@@ -1,0 +1,14 @@
+.navbar {
+    height : 4rem;
+    img{
+        height: 3rem;
+    }
+    div{
+
+    }
+}
+@media screen and (max-width: 400px){
+    .navbar div{
+        visibility: hidden;
+    }
+}
