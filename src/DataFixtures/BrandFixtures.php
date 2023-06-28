@@ -22,6 +22,7 @@ class BrandFixtures extends Fixture
         foreach (self::BRANDS as $brandName) {
             $brand = new Brand();
             $brand->setName($brandName);
+            $this->addReference($brandName, $brand);
             $manager->persist($brand);
         }
         $manager->flush();
