@@ -27,9 +27,13 @@ class Location
     #[ORM\OneToMany(mappedBy: 'location', targetEntity: User::class)]
     private Collection $users;
 
+    #[ORM\OneToMany(mappedBy: 'location', targetEntity: Smartphone::class)]
+    private Collection $smartphones;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->smartphones = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -97,6 +101,36 @@ class Location
             // set the owning side to null (unless already changed)
             if ($user->getLocation() === $this) {
                 $user->setLocation(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Smartphone>
+     */
+    public function getSmartphones(): Collection
+    {
+        return $this->smartphones;
+    }
+
+    public function addSmartphone(Smartphone $smartphone): static
+    {
+        if (!$this->smartphones->contains($smartphone)) {
+            $this->smartphones->add($smartphone);
+            $smartphone->setLocation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSmartphone(Smartphone $smartphone): static
+    {
+        if ($this->smartphones->removeElement($smartphone)) {
+            // set the owning side to null (unless already changed)
+            if ($smartphone->getLocation() === $this) {
+                $smartphone->setLocation(null);
             }
         }
 

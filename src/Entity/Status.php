@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ModelRepository;
+use App\Repository\StatusRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ModelRepository::class)]
-class Model
+#[ORM\Entity(repositoryClass: StatusRepository::class)]
+class Status
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -16,12 +16,9 @@ class Model
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    private ?string $status = null;
 
-    #[ORM\ManyToOne(inversedBy: 'models')]
-    private ?Brand $brand = null;
-
-    #[ORM\OneToMany(mappedBy: 'model', targetEntity: Smartphone::class)]
+    #[ORM\OneToMany(mappedBy: 'status', targetEntity: Smartphone::class)]
     private Collection $smartphones;
 
     public function __construct()
@@ -34,26 +31,14 @@ class Model
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getStatus(): ?string
     {
-        return $this->name;
+        return $this->status;
     }
 
-    public function setName(string $name): self
+    public function setStatus(string $status): static
     {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getBrand(): ?Brand
-    {
-        return $this->brand;
-    }
-
-    public function setBrand(?Brand $brand): self
-    {
-        $this->brand = $brand;
+        $this->status = $status;
 
         return $this;
     }
@@ -70,7 +55,7 @@ class Model
     {
         if (!$this->smartphones->contains($smartphone)) {
             $this->smartphones->add($smartphone);
-            $smartphone->setModel($this);
+            $smartphone->setStatus($this);
         }
 
         return $this;
@@ -80,8 +65,8 @@ class Model
     {
         if ($this->smartphones->removeElement($smartphone)) {
             // set the owning side to null (unless already changed)
-            if ($smartphone->getModel() === $this) {
-                $smartphone->setModel(null);
+            if ($smartphone->getStatus() === $this) {
+                $smartphone->setStatus(null);
             }
         }
 
