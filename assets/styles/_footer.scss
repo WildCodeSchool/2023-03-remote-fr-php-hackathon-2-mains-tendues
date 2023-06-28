@@ -1,0 +1,12 @@
+footer{
+    height: 3rem;
+    visibility: hidden;
+}
+footer a{
+    margin: auto 0
+}
+@media screen and (max-width: 400px){
+    footer{
+        visibility: visible;
+    }
+}
