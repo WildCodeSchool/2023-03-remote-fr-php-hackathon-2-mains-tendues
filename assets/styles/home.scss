@@ -1,5 +1,19 @@
-@media screen and (max-width: 765px){
+@media screen and (max-width: 1200px){
     .logo3 {
         width: 15rem;
+        margin: 5rem;
     }
+    .accueil-grid {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+}
+@media screen and (min-width: 1200px) {
+    .accueil-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        flex-direction: row-reverse;
+    }
+
 }
