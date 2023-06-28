@@ -631,6 +631,9 @@
             "templates/base.html.twig"
         ]
     },
+    "symfony/ux-turbo": {
+        "version": "v2.9.1"
+    },
     "symfony/ux-typed": {
         "version": "v2.9.1"
     },

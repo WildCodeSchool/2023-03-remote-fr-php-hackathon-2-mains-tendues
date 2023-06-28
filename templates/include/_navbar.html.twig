@@ -16,9 +16,9 @@
                 <a href=""><i class="h1 bi-file-earmark-plus text-white"></i></a>
             {% endif %}
 
-            <a href=""><i class="h1 bi mx-5 bi-plus-lg text-white"></i></a>
+            <a href="{{ path('app_message') }}"><i class="h1 bi mx-5 bi-plus-lg text-white"></i></a>
             <a href=""><i class=" h1 bi bi-search text-white"></i></a>
-            <a href=""><i class="h1 mx-5 bi bi-house text-white"></i></a>
+            <a href="{{ path('app_home') }}"><i class="h1 mx-5 bi bi-house text-white"></i></a>
             <a href={{ path('app_logout') }}><i class="h1 bi-box-arrow-left text-white"></i></a>
 
         {% endif %}
