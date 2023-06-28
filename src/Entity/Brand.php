@@ -21,9 +21,13 @@ class Brand
     #[ORM\OneToMany(mappedBy: 'brand', targetEntity: Model::class)]
     private Collection $models;
 
+    #[ORM\OneToMany(mappedBy: 'brand', targetEntity: Smartphone::class)]
+    private Collection $smartphones;
+
     public function __construct()
     {
         $this->models = new ArrayCollection();
+        $this->smartphones = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -67,6 +71,36 @@ class Brand
             // set the owning side to null (unless already changed)
             if ($model->getBrand() === $this) {
                 $model->setBrand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Smartphone>
+     */
+    public function getSmartphones(): Collection
+    {
+        return $this->smartphones;
+    }
+
+    public function addSmartphone(Smartphone $smartphone): static
+    {
+        if (!$this->smartphones->contains($smartphone)) {
+            $this->smartphones->add($smartphone);
+            $smartphone->setBrand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSmartphone(Smartphone $smartphone): static
+    {
+        if ($this->smartphones->removeElement($smartphone)) {
+            // set the owning side to null (unless already changed)
+            if ($smartphone->getBrand() === $this) {
+                $smartphone->setBrand(null);
             }
         }
 

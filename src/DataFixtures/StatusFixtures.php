@@ -2,11 +2,11 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Condition;
+use App\Entity\Status;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-class ConditionFixtures extends Fixture
+class StatusFixtures extends Fixture
 {
     public const STATUS = [
         'Excellent état',
@@ -19,8 +19,9 @@ class ConditionFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         foreach (self::STATUS as $status) {
-            $condition = new Condition();
+            $condition = new Status();
             $condition->setStatus($status);
+            $this->addReference($status, $condition);
             $manager->persist($condition);
         }
         $manager->flush();
