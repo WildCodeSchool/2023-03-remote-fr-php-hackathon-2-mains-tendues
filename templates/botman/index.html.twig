@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="card" style="width: 90%;">
+            <div class="card-body">
+                <div class="form-floating">
+                    {% if response is defined and response is not empty %}
+                        <p class="text-lg-start"> {{ response }} </p>
+                    {% endif %}
+                    <label for="floatingTextarea2"></label>
+                </div>
+                <div>
+                    <form method="POST" action="{{ path('app_message') }}">
+                        {% for question in questions %}
+                            <button type="submit" class="btn btn-outline-primary" name="submitted_question" value="{{ question }}">{{ question }}</button>
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
