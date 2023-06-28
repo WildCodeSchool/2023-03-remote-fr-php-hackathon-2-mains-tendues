@@ -16,4 +16,5 @@ return [
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
     Symfony\UX\Typed\TypedBundle::class => ['all' => true],
     Symfony\UX\StimulusBundle\StimulusBundle::class => ['all' => true],
+    SymfonyCasts\Bundle\ResetPassword\SymfonyCastsResetPasswordBundle::class => ['all' => true],
 ];

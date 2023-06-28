@@ -1,0 +1,24 @@
+<h1>Bonjour,</h1>
+
+<p>Nous avons reçu une demande de réinitialisation de votre mot de passe pour votre compte Emmaus.
+    Si vous n'avez pas fait cette demande, veuillez ignorer cet email.</p>
+
+<p>Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien ci-dessous :</p>
+
+<div class="d-flex justify-content-center">
+    <a href="{{ url('app_reset_password', {token: resetToken.token}) }}" class="btn btn-success">
+        Réinitialiser mon mot de passe</a>
+</div>
+
+<p>Remarque : Ce lien est valable pendant
+    {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+    Passé ce délai, vous devrez demander une nouvelle réinitialisation.</p>
+
+<p>Si vous rencontrez des problèmes pour réinitialiser votre mot de passe,
+    n'hésitez pas à contacter notre service clientèle.</p>
+
+<p>Nous vous remercions pour votre confiance et restons à votre disposition pour toute question.</p>
+
+<p>Chaleureusement,</p>
+
+<p>L'équipe Emmaus</p>

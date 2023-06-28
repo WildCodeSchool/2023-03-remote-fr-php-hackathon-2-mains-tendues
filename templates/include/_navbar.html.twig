@@ -1,7 +1,14 @@
 <nav class="navbar bg-primary ">
-    <a href="/home">
-        <img class="ms-4" src="{{ asset('build/images/emmaus_connect_logo2.png') }}" alt="Logo d'Emmaus connect">
-    </a>
+    {% if app.user %}
+        <a href="/home">
+            <img class="ms-4" src="{{ asset('build/images/emmaus_connect_logo2.png') }}" alt="Logo d'Emmaus connect">
+        </a>
+    {% else %}
+        <a href="/">
+            <img class="ms-4" src="{{ asset('build/images/emmaus_connect_logo2.png') }}" alt="Logo d'Emmaus connect">
+        </a>
+    {% endif %}
+
     <div class="mx-4">
         {% if app.user %}
 

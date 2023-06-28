@@ -45,6 +45,11 @@
                     <button class="btn btn-lg btn-primary mt-3" type="submit">
                         Me connecter
                     </button>
+                    <a href="/reset-password" class="back-button text-decoration-none mt-3 d-block">
+                        Mot de passe oublié</a>
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                    >
                 </form>
             </div>
             <div class="col-lg-6 d-none d-lg-block vh-100 position-relative">
