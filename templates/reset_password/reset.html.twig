@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mot de passe oublié{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 p-5 bg-secondary rounded">
+                <h1 class="text-center mb-4">Création d'un nouveau mot de passe</h1>
+
+                {{ form_start(resetForm) }}
+                {{ form_row(resetForm.plainPassword) }}
+
+                <div class="d-flex justify-content-center mt-4">
+                    <button class="btn btn-success">Demande de nouveau mot de passe</button>
+                </div>
+                {{ form_end(resetForm) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

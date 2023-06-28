@@ -90,6 +90,7 @@ class ModelFixtures extends Fixture
             $model = new Model();
             $model->setName($modelsData['name']);
             $model->setBrand($this->getReference($modelsData['brand']));
+            $this->addReference($modelsData['name'], $model);
             $manager->persist($model);
         }
 

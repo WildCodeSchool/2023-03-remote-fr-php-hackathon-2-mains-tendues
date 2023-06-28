@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Page introuvable
+{% endblock %}
+
+{% block body %}
+
+    <div class=" p404 d-inline  justify-content-center  mt-lg-5">
+        <div class="d-flex flex-row-reverse flex justify-content-center me-5">
+        <img src="{{ asset('build/images/logo3.png') }}"
+             alt="logo d'emmaus connect">
+
+        </div>
+            <div class=" text-center my-auto">
+                <div class="  mx-auto mt-lg-5">
+                <h1>Faire du numérique une chance pour tous ...</h1>
+                <p class="fw-bold">Mais pas ici car vous n'êtes pas sur la bonne page ...</p>
+
+                <button type="button" class="btn btn-primary mb-5 ">Accueil</button>
+                </div>
+            </div>
+
+    </div>
+
+{% endblock %}

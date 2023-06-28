@@ -22,7 +22,9 @@ class RamFixtures extends Fixture
     {
         foreach (self::RAM as $size) {
             $ram = new Ram();
-            $ram->setSize($size);
+            $ram->setRam($size);
+            $referenceName = (string) $size;
+            $this->addReference($referenceName, $ram);
             $manager->persist($ram);
         }
 
