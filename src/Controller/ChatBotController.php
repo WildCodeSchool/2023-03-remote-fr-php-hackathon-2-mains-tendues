@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\ChatBotService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,24 +11,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class ChatBotController extends AbstractController
 {
     #[Route('/chatbot', name: 'app_message')]
-    public function index(Request $request): Response
+    public function index(Request $request, ChatBotService $chatBotService): Response
     {
-        $questions = [
-            'Bonjour' => 'Bonjour ! Comment puis-je vous aider ?',
-            'Quel est votre nom ?' => 'Je suis un chatbot ',
-            'Autre question' => 'Désolé, je n\'ai pas la réponse',
-        ];
-
         $response = '';
         if ($request->isMethod('POST')) {
             $submittedQuestion = $request->request->get('submitted_question');
-            if (array_key_exists($submittedQuestion, $questions)) {
-                $response = $questions[$submittedQuestion];
-            }
+            $response = $chatBotService->getResponse($submittedQuestion);
         }
 
-        return $this->render('botman/index.html.twig', [
-            'questions' => array_keys($questions),
+        return $this->render('chatbot/index.html.twig', [
+            'questions' => $chatBotService->getQuestions(),
             'response' => $response,
         ]);
     }
