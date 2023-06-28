@@ -23,7 +23,7 @@ class Smartphone
     private ?Ram $ram = null;
 
     #[ORM\ManyToOne(inversedBy: 'smartphones')]
-    private ?Stockage $Stockage = null;
+    private ?Stockage $stockage = null;
 
     #[ORM\ManyToOne(inversedBy: 'smartphones')]
     private ?Status $status = null;
@@ -77,12 +77,12 @@ class Smartphone
 
     public function getStockage(): ?Stockage
     {
-        return $this->Stockage;
+        return $this->stockage;
     }
 
-    public function setStockage(?Stockage $Stockage): static
+    public function setStockage(?Stockage $stockage): static
     {
-        $this->Stockage = $Stockage;
+        $this->stockage = $stockage;
 
         return $this;
     }
