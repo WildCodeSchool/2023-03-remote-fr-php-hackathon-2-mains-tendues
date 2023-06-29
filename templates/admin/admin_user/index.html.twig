@@ -7,39 +7,41 @@
             Retour à l'accueil de l'administration </a></div>
     <h1>Listes des utilisateurs</h1>
 
-    <table class="table table-striped table-hover">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Prénom</th>
-            <th>Nom</th>
-            <th>Email</th>
-            <th>Roles</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr class="position-relative">
-
-                <td>{{ user.id }}</td>
-                <td>{{ user.firstname }}</td>
-                <td>{{ user.lastname }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>
-                    <a class="stretched-link" href="{{ path('app_admin_user_edit', {'id': user.id}) }}">
-                        Modifier</a>
-
-                </td>
-            </tr>
-        {% else %}
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
             <tr>
-                <td colspan="7">no records found</td>
+                <th>Id</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th></th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr class="position-relative">
+
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.firstname }}</td>
+                    <td>{{ user.lastname }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                    <td>
+                        <a class="stretched-link" href="{{ path('app_admin_user_edit', {'id': user.id}) }}">
+                            Modifier</a>
+
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <div class="d-flex justify-content-center">
         {{ knp_pagination_render(users) }}
     </div>
