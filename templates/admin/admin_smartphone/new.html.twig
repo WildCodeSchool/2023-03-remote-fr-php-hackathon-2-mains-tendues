@@ -1,0 +1,14 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Nouveau Téléphone{% endblock %}
+
+{% block body %}
+    <div class="mb-4"><a href="{{ path('app_admin_smartphone_index') }}"><i class="bi bi-arrow-90deg-left"></i>
+            Liste des téléphones </a></div>
+
+    <h1 class="admin-title text-uppercase">Ajouter un nouveau téléphone </h1>
+
+    {{ include('admin/admin_smartphone/_form.html.twig') }}
+
+
+{% endblock %}

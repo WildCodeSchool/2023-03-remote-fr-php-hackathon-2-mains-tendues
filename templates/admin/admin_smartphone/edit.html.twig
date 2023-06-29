@@ -1,0 +1,14 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modifier Smartphone{% endblock %}
+
+{% block body %}
+    <div class="mb-4"><a href="{{ path('app_admin_smartphone_index') }}"><i class="bi bi-arrow-90deg-left"></i>
+            Liste des Smartphone</a></div>
+    <h1>Modifier Smartphone</h1>
+
+    {{ include('admin/admin_smartphone/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+
+    {{ include('admin/admin_smartphone/_delete_form.html.twig') }}
+{% endblock %}
