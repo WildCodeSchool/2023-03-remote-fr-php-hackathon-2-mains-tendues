@@ -63,20 +63,12 @@ class UserType extends AbstractType
         ])
             ->add('location', EntityType::class, [
                 'class' => Location::class,
-                'choice_label' => function (Location $location) {
-                    return sprintf(
-                        '%s - %s - %s',
-                        $location->getCity(),
-                        $location->getCountry(),
-                        $location->getDistrict()
-                    );
-                },
-                'label' => 'Emplacement',
+                'choice_label' => 'city',
+                'label' => 'Ville',
                 'attr' => [
                     'class' => 'form-control',
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

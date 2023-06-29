@@ -7,8 +7,17 @@
 
     }
 }
-@media screen and (max-width: 400px){
+@media screen and (max-width: 560px){
     .navbar div{
         visibility: hidden;
     }
+    .logout-phone{
+        margin-right: 1rem;
+    }
+}
+@media screen and (min-width: 560px){
+    .logout-phone{
+        display: none;
+    }
+
 }
