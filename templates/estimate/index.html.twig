@@ -3,10 +3,11 @@
 {% block title %}Estimez un téléphone{% endblock %}
 
 {% block body %}
-
+<div>
     {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button type="submit">Estimez votre tel</button>
+    <button data-turbo="false" type="submit">Estimez votre tel</button>
     {{ form_end(form) }}
-{{ smartphone.price }}
+</div>
+<h1 class="m-5">{{ smartphone.price }}</h1>
 {% endblock %}
