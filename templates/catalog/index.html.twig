@@ -5,34 +5,40 @@
 {% block body %}
     <h1 class="text-uppercase text-center mt-5">Catalogue</h1>
     <div class="m-3">
-    <div class="d-flex">
+        <div class="d-flex">
 
             {{ form(form) }}
 
+        </div>
 
-    </div>
-    <div>
-        <p>filtres</p>
-    </div>
-    <table
-    class="table text-center table-hover mt-4">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Marque et modèle</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for smartphone in smartphones %}
-        <tr>
-            <td>{{ smartphone.id }}</td>
-            <td>{{ smartphone.brand.name }} - {{ smartphone.model.name }}</td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    <div class="d-flex justify-content-center">
-        {{ knp_pagination_render(smartphones) }}
-    </div>
+        <table
+            class="table text-center table-hover mt-4">
+            <tr>
+                <th>Id</th>
+                <th{% if smartphones.isSorted('s.price') %} class="sorted"{% endif %}>Prix <br> {{ knp_pagination_sortable(smartphones, 'Trier par prix', 's.price') }}</th>
+                <th>Marque</th>
+                <th>Modèle</th>
+                <th>Ram</th>
+                <th>Stockage</th>
+                <th>Etat</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for smartphone in smartphones %}
+                <tr>
+                    <td>{{ smartphone.id }}</td>
+                    <td>{{ smartphone.price }} €</td>
+                    <td>{{ smartphone.brand.name }}</td>
+                    <td>{{ smartphone.model.name }}</td>
+                    <td>{{ smartphone.ram.value }} GO</td>
+                    <td>{{ smartphone.stockage.value }} GO</td>
+                    <td>{{ smartphone.status.status }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-center">
+            {{ knp_pagination_render(smartphones) }}
+        </div>
     </div>
 {% endblock %}
