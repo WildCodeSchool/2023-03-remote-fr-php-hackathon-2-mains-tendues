@@ -3,34 +3,33 @@
 {% block title %}Listes des utilisateurs{% endblock %}
 
 {% block body %}
+    <div class="mb-4"><a href="{{ path('index') }}"><i class="bi bi-arrow-90deg-left"></i>
+            Retour à l'accueil de l'administration </a></div>
     <h1>Listes des utilisateurs</h1>
 
-    <table class="table">
+    <table class="table table-striped table-hover">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Email</th>
-                <th>Roles</th>
-                <th></th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Roles</th>
+            <th></th>
+        </tr>
         </thead>
         <tbody>
         {% for user in users %}
-            <tr>
+            <tr class="position-relative">
+
                 <td>{{ user.id }}</td>
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.lastname }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>
-                    <button class="btn btn-dark">
-                        <a href="{{ path('app_admin_user_show', {'id': user.id}) }}">Voir</a>
-                    </button>
-                    <button class="btn btn-warning mt-2">
-                        <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">Modifier</a>
-                    </button>
+                    <a class="stretched-link" href="{{ path('app_admin_user_edit', {'id': user.id}) }}">
+                        Modifier</a>
 
                 </td>
             </tr>
@@ -42,6 +41,6 @@
         </tbody>
     </table>
 
-    <button class="btn btn-success"><a href="{{ path('app_admin_user_new') }}" class="text-decoration-none text-white">Créer un nouveau utilisateur</a></button>
+    <a href="{{ path('app_admin_user_new') }}">Créer un nouveau utilisateur</a>
 
 {% endblock %}
