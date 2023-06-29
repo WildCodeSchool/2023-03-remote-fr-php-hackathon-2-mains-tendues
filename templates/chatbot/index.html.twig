@@ -19,10 +19,9 @@
                 </div>
             </div>
                     <form id="question-form" method="POST" action="{{ path('app_message') }}">
-                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="submitted_question" onchange="submitForm()">
-                                <option selected>Open this select menu </option>
+                            <select class="form-select form-select-lg mb-3 overflow-hidden" aria-label=".form-select-lg example" name="submitted_question" onchange="submitForm()">
                                 {% for question in questions %}
-                                <option value="{{ question }}">{{ question }}</option>
+                                <option value="{{ question }}" {% if question == question %}selected{% endif %}>{{ question }}</option>
                                 {% endfor %}
                             </select>
                     </form>
