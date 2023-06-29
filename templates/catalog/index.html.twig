@@ -38,6 +38,10 @@
             <button class="btn btn-outline-info" data-turbo="false" type="submit">
                 {{ button_label|default('Soumettre') }}
             </button>
+            <a href="{{ path('app_catalog') }}"
+                class="btn btn-search btn-outline-primary">
+                Reset
+            </a>
         </div>
         {{ form_end(form) }}
     </div>
@@ -64,7 +68,7 @@
                     <td>{{ smartphone.price }} €</td>
                     <td>{{ smartphone.brand.name }}</td>
                     <td>{{ smartphone.model.name }}</td>
-                    <td>{{ smartphone.ram.value }} GO</td>
+                    <td>{{ smartphone.ram.ram }} GO</td>
                     <td>{{ smartphone.stockage.size }} GO</td>
                     <td>{{ smartphone.status.status }}</td>
                 </tr>

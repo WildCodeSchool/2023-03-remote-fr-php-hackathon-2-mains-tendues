@@ -17,7 +17,7 @@ class SmartphoneFixtures extends Fixture implements DependentFixtureInterface
         $smartphone->setRam($this->getReference('12'));
         $smartphone->setStockage($this->getReference('128'));
         $smartphone->setStatus($this->getReference('Excellent état'));
-        $smartphone->setPrice(65);
+        $smartphone->setPrice(50);
         $smartphone->setIsSold(false);
         $manager->persist($smartphone);
 
@@ -27,7 +27,7 @@ class SmartphoneFixtures extends Fixture implements DependentFixtureInterface
         $smartphone->setRam($this->getReference('16'));
         $smartphone->setStockage($this->getReference('32'));
         $smartphone->setStatus($this->getReference('Mauvais état'));
-        $smartphone->setPrice(25);
+        $smartphone->setPrice(39);
         $smartphone->setIsSold(true);
         $manager->persist($smartphone);
 
@@ -37,7 +37,7 @@ class SmartphoneFixtures extends Fixture implements DependentFixtureInterface
         $smartphone->setRam($this->getReference('8'));
         $smartphone->setStockage($this->getReference('128'));
         $smartphone->setStatus($this->getReference('Bon état'));
-        $smartphone->setPrice(0);
+        $smartphone->setPrice(43);
         $smartphone->setIsSold(false);
         $manager->persist($smartphone);
 
@@ -47,7 +47,7 @@ class SmartphoneFixtures extends Fixture implements DependentFixtureInterface
         $smartphone->setRam($this->getReference('4'));
         $smartphone->setStockage($this->getReference('512'));
         $smartphone->setStatus($this->getReference('Bon état'));
-        $smartphone->setPrice(25);
+        $smartphone->setPrice(48);
         $smartphone->setIsSold(false);
         $manager->persist($smartphone);
 
@@ -57,7 +57,7 @@ class SmartphoneFixtures extends Fixture implements DependentFixtureInterface
         $smartphone->setRam($this->getReference('4'));
         $smartphone->setStockage($this->getReference('32'));
         $smartphone->setStatus($this->getReference('Mauvais état'));
-        $smartphone->setPrice(65);
+        $smartphone->setPrice(30);
         $smartphone->setIsSold(false);
         $manager->persist($smartphone);
 
@@ -67,7 +67,7 @@ class SmartphoneFixtures extends Fixture implements DependentFixtureInterface
         $smartphone->setRam($this->getReference('12'));
         $smartphone->setStockage($this->getReference('128'));
         $smartphone->setStatus($this->getReference('Excellent état'));
-        $smartphone->setPrice(75);
+        $smartphone->setPrice(45);
         $smartphone->setIsSold(true);
         $manager->persist($smartphone);
         $manager->flush();
