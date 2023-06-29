@@ -57,7 +57,6 @@ class SmartphoneRepository extends ServiceEntityRepository
     }
 
 
-
 //    /**
 //     * @return Smartphone[] Returns an array of Smartphone objects
 //     */
