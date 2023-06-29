@@ -24,6 +24,9 @@ class Model
     #[ORM\OneToMany(mappedBy: 'model', targetEntity: Smartphone::class)]
     private Collection $smartphones;
 
+    #[ORM\Column]
+    private ?int $value = null;
+
     public function __construct()
     {
         $this->smartphones = new ArrayCollection();
@@ -84,6 +87,18 @@ class Model
                 $smartphone->setModel(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getValue(): ?int
+    {
+        return $this->value;
+    }
+
+    public function setValue(int $value): static
+    {
+        $this->value = $value;
 
         return $this;
     }
