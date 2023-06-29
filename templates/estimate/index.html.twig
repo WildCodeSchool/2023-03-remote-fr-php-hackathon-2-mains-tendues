@@ -3,11 +3,48 @@
 {% block title %}Emmaüs Connect - Estimation{% endblock %}
 
 {% block body %}
-<div>
+<div class="container">
     {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button data-turbo="false" type="submit">Estimez votre tel</button>
+
+
+
+
+    <ul class="accordion list-unstyled mt-3 ">
+        <li class="bg-primary-subtle position-relative overflow-hidden ">
+            <input class="z-1" type="radio" name="accordion" id="first" checked>
+            <label class="label_accordion fw-bold text-white justify-content-center bg-primary rounded-3"   for="first" >Marque et modèle du téléphone</label>
+            <div class="content d-flex justify-content-evenly   flex-lg-row  w-100 h-100 text-black ">
+                {{ form_row(form.brand) }}
+                {{ form_row(form.model) }}
+            </div>
+
+        </li>
+        <li class="bg-primary-subtle position-relative overflow-hidden ">
+            <input type="radio" name="accordion" id="second">
+            <label class=" label_accordion fw-bold text-white justify-content-center bg-primary rounded" for="second" >Caractéristiques </label>
+            <div class="content d-flex justify-content-evenly flex-lg-row w-100 h-100 text-black ">
+                {{ form_row(form.ram) }}
+                {{ form_row(form.stockage) }}
+            </div>
+        </li>
+        <li class="bg-primary-subtle position-relative overflow-hidden ">
+            <input type="radio" name="accordion" id="third">
+            <label class=" label_accordion fw-bold text-white justify-content-center bg-primary rounded" for="third" >Etat général </label>
+            <div class="content d-flex justify-content-center flex-lg-row w-100 h-100 text-black ">
+                {{ form_row(form.status) }}
+
+            </div>
+        </li>
+    </ul>
+    </div>
+    <div class=" bg-secondary rounded fw-5  result-estimate position-relative mx-auto row">
+        <p class="text-center text-white text-success col mt-4" >{{ smartphone.price}} € </p>
+        <button class="h-25  mx-auto  btn btn-primary text-white position-absolute bottom-0 " data-turbo="false" type="submit">Calculer</button>
+    </div>
+
+
     {{ form_end(form) }}
-</div>
-<h1 class="m-5">{{ smartphone.price }}</h1>
+
+
+    </div>
 {% endblock %}
