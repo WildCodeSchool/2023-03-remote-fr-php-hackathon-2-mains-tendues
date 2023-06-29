@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,12 +16,23 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminUserController extends AbstractController
 {
     #[Route('/', name: 'app_admin_user_index', methods: ['GET'])]
-    public function index(UserRepository $userRepository): Response
-    {
+    public function index(
+        UserRepository $userRepository,
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response {
+        $query = $userRepository->createQueryBuilder('u')->getQuery();
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            10
+        );
+
         return $this->render('admin/admin_user/index.html.twig', [
-            'users' => $userRepository->findAll(),
+            'users' => $pagination,
         ]);
     }
+
 
     #[Route('/new', name: 'app_admin_user_new', methods: ['GET', 'POST'])]
     public function new(Request $request, UserRepository $userRepository): Response

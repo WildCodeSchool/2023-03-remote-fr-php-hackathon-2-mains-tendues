@@ -1,10 +1,10 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Administration{% endblock %}
+{% block title %}Emmaüs Connect - Administration{% endblock %}
 
 {% block body %}
-    <h1 class="mb-4 text-center">Administration</h1>
-    <h2>Bonjour {{ app.user.firstname }}</h2>
+    <h1 class="border border- text-center mb-2">Administration</h1>
+    <h2>Bonjour {{ app.user.firstname }} {{ app.user.lastname }}</h2>
     <div class="container">
         <p>Bonjour et bienvenue dans l'espace d'administration d'Emmaüs. Ici, vous avez le pouvoir de gérer,
             modifier et ajuster chaque aspect de notre site pour qu'il fonctionne au mieux pour nos utilisateurs. <br>

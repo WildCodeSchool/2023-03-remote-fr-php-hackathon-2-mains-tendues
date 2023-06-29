@@ -19,6 +19,7 @@ class CatalogController extends AbstractController
         PaginatorInterface $paginator,
     ): Response {
         {
+
             $form = $this->createFormBuilder(null, [
                 'method' => 'get'
             ])
