@@ -19,8 +19,7 @@ class SmartphoneType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('isSold')
-            ->add('image')
+
             ->add('brand', EntityType::class, [
                 "class" => Brand::class,
                 "choice_label" => 'name'
@@ -40,10 +39,6 @@ class SmartphoneType extends AbstractType
             ->add('status', EntityType::class, [
                 'class' => Status::class,
                 'choice_label' => 'status'
-            ])
-            ->add('location', EntityType::class, [
-                "class" => Location::class,
-                "choice_label" => 'city'
             ])
         ;
     }

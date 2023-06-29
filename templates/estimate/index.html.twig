@@ -3,10 +3,41 @@
 {% block title %}Estimez un téléphone{% endblock %}
 
 {% block body %}
-
+<div class="container">
     {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit">Estimez votre tel</button>
+
+
+
+
+    <ul class="accordion list-unstyled mt-3 ">
+        <li class="bg-primary position-relative overflow-hidden ">
+            <input class="z-1" type="radio" name="accordion" id="first" checked>
+            <label class="fw-bold text-white"   for="first" > + Marque et modèle du téléphone</label>
+            <div class="content d-flex flex-column  flex-lg-row  w-100 h-100 text-white text-center">
+                {{ form_row(form.brand) }}
+                {{ form_row(form.model) }}
+            </div>
+
+        </li>
+        <li class="bg-primary position-relative overflow-hidden ">
+            <input type="radio" name="accordion" id="second">
+            <label class="fw-bold text-white" for="second" > + Caractéristiques </label>
+            <div class="content d-flex flex-column flex-lg-row w-100 h-100 text-white text-center ">
+                {{ form_row(form.ram) }}
+                {{ form_row(form.stockage) }}
+            </div>
+        </li>
+        <li class="bg-primary position-relative overflow-hidden ">
+            <input type="radio" name="accordion" id="third">
+            <label class="fw-bold text-white" for="third" > + Etat général </label>
+            <div class="content d-flex flex-column flex-lg-row w-100 h-100 text-white text-center">
+                {{ form_row(form.status) }}
+
+            </div>
+        </li>
+    </ul>
+    </div>
+    <button class="w-25 mx-auto btn btn-primary text-white" type="button">Calculer</button>
     {{ form_end(form) }}
-{{ smartphone.price }}
+    </div>
 {% endblock %}
