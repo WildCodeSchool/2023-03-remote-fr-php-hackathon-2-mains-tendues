@@ -3,6 +3,8 @@
         <a href="/home">
             <img class="ms-4" src="{{ asset('build/images/emmaus_connect_logo2.png') }}" alt="Logo d'Emmaus connect">
         </a>
+        <a class="logout-phone" href={{ path('app_logout') }}><i class="h1 bi-box-arrow-left text-white"></i></a>
+
     {% else %}
         <a href="/">
             <img class="ms-4" src="{{ asset('build/images/emmaus_connect_logo2.png') }}" alt="Logo d'Emmaus connect">
@@ -17,12 +19,11 @@
             {% endif %}
 
             <a href="{{ path('app_estimate') }}"><i class="h1 bi mx-5 bi-plus-lg text-white"></i></a>
-            <a href=""><i class=" h1 bi bi-search text-white"></i></a>
+            <a href="{{ path('app_catalog') }}"><i class=" h1 bi bi-search text-white"></i></a>
             <a href="{{ path('app_home') }}"><i class="h1 mx-5 bi bi-house text-white"></i></a>
             <a href={{ path('app_logout') }}><i class="h1 bi-box-arrow-left text-white"></i></a>
 
         {% endif %}
     </div>
-
 
 </nav>
