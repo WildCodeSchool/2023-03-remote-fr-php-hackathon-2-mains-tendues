@@ -1,12 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
+{% block title %}Emmaüs Connect - Connexion{% endblock %}
 
 {% block body %}
+    <div class="text-center mt-5 d-lg-none w-50 rounded-end-5 bg-secondary">
+        <p class="text-uppercase m-0 p-1 fw-bold">Connexion</p>
+    </div>
     <section class="container-fluid vh-100 d-flex align-items-center">
         <div class="row w-100">
             <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
-                <form method="post">
+                <form class="mb-5" method="post">
                     {% if error %}
                         <div class="alert alert-danger mt-3">
                             {{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -18,8 +21,11 @@
                             <a href="{{ path('app_logout') }}" class="btn btn-secondary">Me déconnecter</a>
                         </div>
                     {% endif %}
+                    <div class="w-100 d-lg-none d-flex justify-content-center">
+                        <img src="{{ asset('build/images/logo3.png') }}" alt="" class="logo3 mt-2 img-fluid">
+                    </div>
 
-                    <h1 class="h3 mb-3 mt-3 font-weight-normal">Me connecter</h1>
+                    <h1 class="h3 mb-3 font-weight-normal text-uppercase">Me connecter</h1>
                     <label for="inputEmail" class="mt-2">Email</label>
                     <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
                            class="form-control" autocomplete="email" required autofocus>
