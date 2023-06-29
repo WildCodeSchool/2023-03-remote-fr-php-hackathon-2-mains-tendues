@@ -9,20 +9,21 @@ use Doctrine\Persistence\ObjectManager;
 class BrandFixtures extends Fixture
 {
     public const BRANDS = [
-        'Apple',
-        'Samsung',
-        'Huawei',
-        'Nokia',
-        'Google',
-        'Xiaomi'
+       [ 'brand' => 'Apple', 'value' => 10],
+       [ 'brand' => 'Samsung', 'value' => 10],
+       [ 'brand' => 'Huawei','value' => 5],
+       [ 'brand' => 'Nokia', 'value' => 5],
+       [ 'brand' => 'Google', 'value' => 5],
+       [ 'brand' => 'Xiaomi','value' => 5],
     ];
 
     public function load(ObjectManager $manager): void
     {
-        foreach (self::BRANDS as $brandName) {
+        foreach (self::BRANDS as $brandData) {
             $brand = new Brand();
-            $brand->setName($brandName);
-            $this->addReference($brandName, $brand);
+            $brand->setName($brandData['brand']);
+            $brand->setValue($brandData['value']);
+            $this->addReference($brandData['brand'], $brand);
             $manager->persist($brand);
         }
         $manager->flush();

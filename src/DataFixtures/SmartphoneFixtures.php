@@ -36,7 +36,7 @@ class SmartphoneFixtures extends Fixture implements DependentFixtureInterface
         $smartphone->setModel($this->getReference('Galaxy A51'));
         $smartphone->setRam($this->getReference('8'));
         $smartphone->setStockage($this->getReference('128'));
-        $smartphone->setStatus($this->getReference('Inutilisable'));
+        $smartphone->setStatus($this->getReference('Bon état'));
         $smartphone->setPrice(0);
         $smartphone->setIsSold(false);
         $manager->persist($smartphone);
