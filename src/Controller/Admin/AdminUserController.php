@@ -43,7 +43,7 @@ class AdminUserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $userRepository->save($user, true);
-            $this->addFlash('info', 'Utilisateur crée.');
+            $this->addFlash('info', 'Utilisateur créé.');
             return $this->redirectToRoute('app_admin_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
