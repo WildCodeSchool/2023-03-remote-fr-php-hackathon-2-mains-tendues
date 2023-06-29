@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
+    <title>
+        {% block title %}Emmaüs Connect - Admin
+        {% endblock %}
+    </title>
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+{% include 'include/_navbar.html.twig' %}
+<div class="container mt-4">
+    <div class="row">
+        <main class="col-9 border border-light bg-white p-2">
+            {% block body %}{% endblock %}
+        </main>
+        {% include "/admin/_partials/adminnav.html.twig" %}
+    </div>
+</div>
+</body>
+
+</html>
