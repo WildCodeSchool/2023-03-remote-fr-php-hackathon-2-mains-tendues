@@ -20,7 +20,6 @@
         <tr>
             <th>Id</th>
             <th>Marque et modèle</th>
-            <th>Vendu</th>
         </tr>
         </thead>
         <tbody>
@@ -28,7 +27,6 @@
         <tr>
             <td>{{ smartphone.id }}</td>
             <td>{{ smartphone.brand.name }} - {{ smartphone.model.name }}</td>
-            <td><input type="radio"><label for="Oui">oui</label><br><input type="radio"><label for="non">Non</label></td>
         </tr>
         {% endfor %}
         </tbody>

@@ -16,7 +16,7 @@ class CatalogController extends AbstractController
     public function index(
         SmartphoneRepository $smartphoneRepository,
         Request $request,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
     ): Response {
         {
             $form = $this->createFormBuilder(null, [
