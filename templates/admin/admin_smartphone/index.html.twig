@@ -5,9 +5,11 @@
 {% block body %}
     <div class="mb-4"><a href="{{ path('index') }}"><i class="bi bi-arrow-90deg-left"></i>
             Accueil de l'administration </a></div>
-    <h1>Listes Smartphone</h1>
-<div class="table-responsive">
-    <table class="table table-striped table-hover">
+    <h1 class="admin-title border text-center mb-2 text-uppercase">Liste des Smartphones</h1>
+    <div class="mt-2 mb-2 btn btn-info"><a href="{{ path('app_admin_smartphone_new') }}"
+                                           class="text-decoration-none text-white">Ajouter un nouveau téléphone</a></div>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
         <thead>
             <tr>
                 <th>Id</th>
@@ -45,5 +47,4 @@
     <div class="d-flex justify-content-center">
         {{ knp_pagination_render(smartphones) }}
     </div>
-    <a href="{{ path('app_admin_smartphone_new') }}">Ajouter un nouveau téléphone</a>
 {% endblock %}
