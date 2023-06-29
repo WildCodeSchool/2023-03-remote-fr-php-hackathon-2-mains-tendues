@@ -1,7 +1,8 @@
 #!/bin/sh
 mkdir -p /var/www/public/uploads
 chmod -R 777 /var/www/public/uploads
-chmod -R 777 /var
+chmod -R 777 /var/www/var
+chmod -R 777 /var/www/public
 set -e
 
 ## Symfony configuration
@@ -16,9 +17,6 @@ fi
 
 php bin/console cache:clear
 php bin/console cache:warmup
-
-chmod -R 777 /var/www/var
-chmod -R 777 /var/www/public
 
 # run composer scripts like
 # assets:install public
