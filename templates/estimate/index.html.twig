@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Estimez un téléphone{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Estimez votre tel</button>
+    {{ form_end(form) }}
+{{ smartphone.price }}
+{% endblock %}
