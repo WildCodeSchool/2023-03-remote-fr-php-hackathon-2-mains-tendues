@@ -19,26 +19,33 @@ class SmartphoneType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-
             ->add('brand', EntityType::class, [
                 "class" => Brand::class,
-                "choice_label" => 'name'
+                "choice_label" => 'name',
+                "label" => "Marque",
             ])
             ->add('model', EntityType::class, [
                 "class" => Model::class,
-                "choice_label" => 'name'
+                "choice_label" => 'name',
+                "label" => "Modèle",
+                "group_by" => function (Model $model) {
+                    return $model->getBrand()->getName();
+                },
             ])
             ->add('ram', EntityType::class, [
                 "class" => Ram::class,
-                "choice_label" => "ram"
+                "choice_label" => "ram",
+                "label" => "Mémoire vive (Go)",
             ])
             ->add('stockage', EntityType::class, [
                 "class" => Stockage::class,
-                "choice_label" => "size"
-                ])
+                "choice_label" => "size",
+                "label" => "Stockage (Go)",
+            ])
             ->add('status', EntityType::class, [
                 'class' => Status::class,
-                'choice_label' => 'status'
+                'choice_label' => 'status',
+                "label" => "Etat du téléphone",
             ])
         ;
     }
