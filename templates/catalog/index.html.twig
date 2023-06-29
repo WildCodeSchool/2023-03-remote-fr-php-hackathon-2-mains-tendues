@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Emmaüs Connect - Catalogue{% endblock %}
+
+{% block body %}
+    <h1 class="text-uppercase text-center mt-5">Catalogue</h1>
+    <div class="m-3">
+    <div class="d-flex">
+
+            {{ form(form) }}
+
+
+    </div>
+    <div>
+        <p>filtres</p>
+    </div>
+    <table
+    class="table text-center table-hover mt-4">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Marque et modèle</th>
+            <th>Vendu</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for smartphone in smartphones %}
+        <tr>
+            <td>{{ smartphone.id }}</td>
+            <td>{{ smartphone.brand.name }} - {{ smartphone.model.name }}</td>
+            <td><input type="radio"><label for="Oui">oui</label><br><input type="radio"><label for="non">Non</label></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-center">
+        {{ knp_pagination_render(smartphones) }}
+    </div>
+    </div>
+{% endblock %}
