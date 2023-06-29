@@ -8,16 +8,16 @@
     </div>
     <div class="m-auto">
         <h1 class="text-uppercase d-none d-lg-flex m-5" {{ stimulus_controller('symfony/ux-typed', {strings:
-            ['Faire du numérique une chance pour tous'], showCursor: false}) }}> Bienvenue, firstname !</h1>
+            ['Faire du numerique une chance pour tous'], showCursor: false}) }}></h1>
         <p class="text-center mb-5"></p>
     </div>
     <section class="accueil-grid">
 
         <div class=" lien-accueil w-50 m-auto">
-            <button type="button" class="btn btn-success mb-4 rounded-5 p-md-4 w-100 text-white">
+            <a href="" type="button" class="btn btn-success mb-4 rounded-5 p-md-4 w-100 text-white">
                 Estimer un téléphone
-            </button>
-            <button type="button" class="btn btn-success rounded-5 p-md-4 w-100 text-white">Voir le catalogue</button>
+            </a>
+            <a href="{{ path('app_catalog') }}" type="button" class="btn btn-success rounded-5 p-md-4 w-100 text-white">Voir le catalogue</a>
         </div>
         <div class="w-100 d-flex justify-content-center">
             <img src="{{ asset('build/images/logo3.png') }}" alt="" class="logo3 mt-2 img-fluid">

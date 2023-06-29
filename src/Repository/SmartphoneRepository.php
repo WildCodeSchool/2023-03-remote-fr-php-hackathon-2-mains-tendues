@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Smartphone;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -38,6 +39,24 @@ class SmartphoneRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+    public function queryFindAll(): Query
+    {
+        return $this->createQueryBuilder('s')->getQuery();
+    }
+
+    public function findLikeName(string $search): Query
+    {
+        return $this->createQueryBuilder('s')
+            ->join('s.brand', 'b')
+            ->join('s.model', 'm')
+            ->andWhere('b.name LIKE :search')
+            ->orWhere('m.name LIKE :search')
+            ->setParameter('search', '%' . $search . '%')
+            ->getQuery();
+    }
+
+
 
 //    /**
 //     * @return Smartphone[] Returns an array of Smartphone objects
