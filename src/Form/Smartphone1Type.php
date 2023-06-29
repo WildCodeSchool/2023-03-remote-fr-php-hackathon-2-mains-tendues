@@ -47,7 +47,8 @@ class Smartphone1Type extends AbstractType
                 'class' => Status::class,
                 'choice_label' => 'status',
                 "label" => "Etat du téléphone",
-            ]);
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
