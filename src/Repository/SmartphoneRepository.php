@@ -50,24 +50,13 @@ class SmartphoneRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('s')->getQuery();
     }
 
-    public function findLikeName(?string $search): ?Query
-    {
-        return $this->createQueryBuilder('s')
-            ->join('s.brand', 'b')
-            ->join('s.model', 'm')
-            ->andWhere('b.name LIKE :search')
-            ->orWhere('m.name LIKE :search')
-            ->setParameter('search', '%' . $search . '%')
-            ->getQuery();
-    }
-
     public function findForPagination(
         ?Brand $brand = null,
         ?Stockage $stockage = null,
         ?Status $status = null,
         ?Ram $ram = null,
         ?Model $model = null,
-        ?string $search
+        ?string $search = null
     ): Query {
         $query = $this->createQueryBuilder('s')
             ->orderBy('s.id', 'ASC');
@@ -84,7 +73,7 @@ class SmartphoneRepository extends ServiceEntityRepository
         if ($status) {
             $query->leftJoin('s.status', 'sta')
                 ->andWhere('sta.id = :statusId')
-                ->setParameter('stockageId', $status->getId());
+                ->setParameter('statusId', $status->getId());
         }
         if ($ram) {
             $query->leftJoin('s.ram', 'r')

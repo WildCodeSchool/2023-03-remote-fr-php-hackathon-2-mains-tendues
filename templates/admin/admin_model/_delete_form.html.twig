@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('app_admin_model_delete', {'id': model.id}) }}"
+      onsubmit="return confirm('Etes-vous sur de vouloir supprimer ce modèle ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ model.id) }}">
+    <button class="rounded-2">Supprimer</button>
+</form>
