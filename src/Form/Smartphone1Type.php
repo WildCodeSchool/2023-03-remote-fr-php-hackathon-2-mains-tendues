@@ -32,7 +32,9 @@ class Smartphone1Type extends AbstractType
                     return $model->getBrand()->getName();
                 },
             ])
-            ->add('price')
+            ->add('price', null, [
+                "label" => "Prix",
+            ])
             ->add('ram', EntityType::class, [
                 "class" => Ram::class,
                 "choice_label" => "ram",
